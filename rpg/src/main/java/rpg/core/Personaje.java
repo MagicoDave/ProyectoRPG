@@ -1,36 +1,47 @@
 package rpg.core;
 
+import java.util.ArrayList;
+import rpg.libreria.*;
+
 public class Personaje {
     
     private String nombre;
-    private int strScore, dexScore, conScore, intScore, wisScore, charScore;
-    private int strMod, dexMod, conMod, intMod, wisMod, charMod;
+    public int nivel;
+    public int strScore, dexScore, conScore, intScore, wisScore, charScore; //Stats base
+    public int strTemp, dexTemp, conTemp, intTemp, wisTemp, charTemp; //Stats temporales
+    public int vidaBase, vidaActual, iniciativa, modArma, armadura, aptitud;
+    public ArrayList<Habilidades> listaHabilidades;
 
 
-    public Personaje(String nombre, int[] stats){
-
+    public Personaje(String nombre, int nivel, int[] stats){
+        this.nombre = nombre;
+        this.nivel = nivel;
+        strScore = stats[0];
+        dexScore = stats[1];
+        conScore = stats[2];
+        intScore = stats[3];
+        wisScore = stats[4];
+        charScore = stats[5];
+        strTemp = 0;
+        dexTemp = 0;
+        conTemp = 0;
+        intTemp = 0;
+        wisTemp = 0;
+        charTemp = 0;
+        
     }
 
-    public int getStatMod(int stat){
-        int statMod = 0;
+    //Get modStat
+    public int getStrMod(){return Libreria.getStatMod(strScore + strTemp);}
+    public int getDexMod(){return Libreria.getStatMod(dexScore + dexTemp);}
+    public int getConMod(){return Libreria.getStatMod(conScore + conTemp);}
+    public int getIntMod(){ return Libreria.getStatMod(intScore + intTemp);}
+    public int getWisMod(){return Libreria.getStatMod(wisScore + wisTemp);}
+    public int getCharMod(){return Libreria.getStatMod(charScore + charTemp);}
 
-        if (stat == 1){statMod = -5;}
-        if (stat > 1 && stat < 4){statMod = -4;}
-        if (stat > 3 && stat < 6){statMod = -3;}
-        if (stat > 5 && stat < 8){statMod = -2;}
-        if (stat > 7 && stat < 10){statMod = -1;}
-        if (stat > 9 && stat < 12){statMod = 0;}
-        if (stat > 11 && stat < 14){statMod = +1;}
-        if (stat > 13 && stat < 16){statMod = +2;}
-        if (stat > 15 && stat < 18){statMod = +3;}
-        if (stat > 17 && stat < 20){statMod = +4;}
-        if (stat > 19 && stat < 22){statMod = +5;}
-        if (stat > 21 && stat < 24){statMod = +6;}
-        if (stat > 23 && stat < 26){statMod = +7;}
-        if (stat > 25 && stat < 28){statMod = +8;}
-        if (stat > 27 && stat < 30){statMod = +9;}
-        if (stat >= 30){statMod = +10;}
+    //Set y get nombre
+    public String getNombre(){return nombre;}
+    public void setNombre(String nombre){this.nombre = nombre;}
 
-        return statMod;
-    }
+    
 }
