@@ -6,14 +6,13 @@ public class Jugador extends Personaje{
 
     String nombreClase;
 
-    public Jugador(String nombre, int nivel, int[] stats) {
-        super(nombre, nivel, stats);
+    public Jugador(String nombre, int nivel) {
+        super(nombre, nivel);
     }
 
     public void claseBarbaro(){
 
         //Inicializar stats
-        setNivel(1);
         nombreClase = "Bárbaro";
         setStrScore(20);
         setDexScore(16);
@@ -34,7 +33,6 @@ public class Jugador extends Personaje{
     public void clasePaladin(){
 
         //Inicializar stats
-        setNivel(1);
         nombreClase = "Paladín";
         setStrScore(16);
         setDexScore(14);
@@ -59,7 +57,6 @@ public class Jugador extends Personaje{
     public void clasePicaro(){
 
         //Inicializar stats
-        setNivel(1);
         nombreClase = "Pícaro";
         setStrScore(12);
         setDexScore(20);
@@ -82,7 +79,6 @@ public class Jugador extends Personaje{
     public void claseMago(){
 
         //Inicializar stats
-        setNivel(1);
         nombreClase = "Mago";
         setStrScore(14);
         setDexScore(12);

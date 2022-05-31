@@ -12,6 +12,7 @@ public class Personaje {
     private int vidaBase, vidaActual, iniciativa, aptitud;
     public ArrayList<Habilidades> listaHabilidades;
     public ArrayList<Equipo> listaEquipo;
+    public ArrayList<Poder> listaPoderes;
 
 
     public Personaje(String nombre, int nivel, int[] stats){
@@ -29,6 +30,11 @@ public class Personaje {
         intTemp = 0;
         wisTemp = 0;
         charTemp = 0;
+    }
+
+    public Personaje(String nombre, int nivel){
+        this.nombre = nombre;
+        this.nivel = nivel;
     }
 
     /**

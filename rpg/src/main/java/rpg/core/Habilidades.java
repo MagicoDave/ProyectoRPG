@@ -1,5 +1,7 @@
 package rpg.core;
 
+//Clase en desuso por el momento, tal vez se utilice en el futuro
+
 public class Habilidades {
     
     private String nombre;
