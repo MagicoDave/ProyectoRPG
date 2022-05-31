@@ -21,9 +21,14 @@ public class Jugador extends Personaje{
         setIntScore(12);
         setWisScore(10);
         setCharScore(14);
+        setAptitud(2);
+        setVidaBase(12 + getConMod() * getNivel()); // Los bárbaros consiguen 12 puntos de golpe (vida) máximos por nivel
+        setvidaActual(getVidaBase());
 
         //Inventario
-        Arma hachaBarbara = new Arma("Gran Hacha Bárbara", "CORTANTE", Libreria.roll1d12());
+        Arma hachaBarbara = new Arma("Gran Hacha Bárbara", "CORTANTE", Libreria.roll1d12(), false);
+        listaEquipo.add(hachaBarbara);
+
     }
 
     public void clasePaladin(){
@@ -37,11 +42,17 @@ public class Jugador extends Personaje{
         setIntScore(10);
         setWisScore(12);
         setCharScore(18);
+        setAptitud(2);
+        setVidaBase(10 + getConMod() * getNivel()); // Los paladines consiguen 10 puntos de golpe (vida) máximos por nivel
+        setvidaActual(getVidaBase());
 
         //Inventario
-        Arma maza = new Arma("Maza", "APLASTANTE", Libreria.roll1d6());
+        Arma maza = new Arma("Maza", "APLASTANTE", Libreria.roll1d6(), false);
         Armadura escudo = new Armadura("Escudo", 2);
         Armadura cotaMalla = new Armadura("Cota de Malla", 16);
+        listaEquipo.add(maza);
+        listaEquipo.add(escudo);
+        listaEquipo.add(cotaMalla);
 
     }
 
@@ -56,10 +67,16 @@ public class Jugador extends Personaje{
         setIntScore(18);
         setWisScore(10);
         setCharScore(16);
+        setAptitud(2);
+        setVidaBase(8 + getConMod() * getNivel()); // Los pícaros consiguen 8 puntos de golpe (vida) máximos por nivel
+        setvidaActual(getVidaBase());
 
         //Inventario
+        Arma estoque = new Arma("Estoque", "PERFORANTE", Libreria.roll1d8(), true);
+        Armadura armaduraCuero = new Armadura("Armadura de cuero", 11);
+        listaEquipo.add(estoque);
+        listaEquipo.add(armaduraCuero);
 
-        //Daño y armadura
     }
 
     public void claseMago(){
@@ -73,10 +90,14 @@ public class Jugador extends Personaje{
         setIntScore(20);
         setWisScore(18);
         setCharScore(10);
+        setAptitud(2);
+        setVidaBase(6 + getConMod() * getNivel()); // Los magos consiguen 6 puntos de golpe (vida) máximos por nivel
+        setvidaActual(getVidaBase());
 
         //Inventario
+        Arma baston = new Arma("Bastón", "CONTUNDENTE", Libreria.roll1d6(), false);
+        listaEquipo.add(baston);
 
-        //Daño y armadura
     }
     
 }
