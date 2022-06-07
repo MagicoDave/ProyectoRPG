@@ -53,6 +53,7 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         pnlHeroe = new JPanel();
         pnlHeroe.setSize(250, 550);
         pnlHeroe.setLocation(50, 50);
+        pnlHeroe.setLayout(null);
         pnlHeroe.setBackground(new Color(1f, 1f, 1f, .6f));
         add(pnlHeroe);
             //Label heroe
@@ -66,8 +67,8 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         cbHeroe = new JComboBox<>(listaHeroes);
         cbHeroe.setSelectedIndex(0);
         cbHeroe.setMaximumRowCount(5);
-        cbHeroe.setSize(cbHeroe.getPreferredSize().width, cbHeroe.getPreferredSize().width);
-        cbHeroe.setLocation(10, 200);
+        cbHeroe.setSize(cbHeroe.getPreferredSize().width, cbHeroe.getPreferredSize().height);
+        cbHeroe.setLocation(50, 100);
         cbHeroe.addItemListener(this);
         pnlHeroe.add(cbHeroe);
             //Label nivel
@@ -75,12 +76,12 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         lblNivel.setHorizontalAlignment(JLabel.CENTER);
         lblNivel.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNivel.setSize(250, 50);
-        lblNivel.setLocation(0, 200);
+        lblNivel.setLocation(0, 150);
         pnlHeroe.add(lblNivel);
             //Textfield nivel
         txtNivelHeroe = new JTextField("1");
-        txtNivelHeroe.setSize(50, 50);
-        txtNivelHeroe.setLocation(100, 250);
+        txtNivelHeroe.setSize(25, 25);
+        txtNivelHeroe.setLocation(50, 200);
         pnlHeroe.add(txtNivelHeroe);
             //Label Icono
         lblSpriteHeroe = new JLabel();
@@ -94,6 +95,7 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         pnlMonstruo = new JPanel();
         pnlMonstruo.setSize(250, 550);
         pnlMonstruo.setLocation(600, 50);
+        pnlMonstruo.setLayout(null);
         pnlMonstruo.setBackground(new Color(1f, 1f, 1f, .6f));
         add(pnlMonstruo);
             //Label Monstruo
@@ -107,8 +109,8 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         cbMonstruo = new JComboBox<>(listaMonstruos);
         cbMonstruo.setSelectedIndex(0);
         cbMonstruo.setMaximumRowCount(5);
-        cbMonstruo.setSize(cbMonstruo.getPreferredSize().width, cbMonstruo.getPreferredSize().width);
-        cbMonstruo.setLocation(10, 200);
+        cbMonstruo.setSize(cbMonstruo.getPreferredSize().width, cbMonstruo.getPreferredSize().height);
+        cbMonstruo.setLocation(50, 100);
         cbMonstruo.addItemListener(this);
         pnlMonstruo.add(cbMonstruo);
             //Label Nivel
@@ -116,12 +118,12 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         lblNivel.setHorizontalAlignment(JLabel.CENTER);
         lblNivel.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNivel.setSize(250, 50);
-        lblNivel.setLocation(0, 200);
+        lblNivel.setLocation(0, 150);
         pnlMonstruo.add(lblNivel);
             //Textfield nivel
         txtNivelMonstruo = new JTextField("1");
-        txtNivelMonstruo.setSize(50, 50);
-        txtNivelMonstruo.setLocation(100, 250);
+        txtNivelMonstruo.setSize(25, 25);
+        txtNivelMonstruo.setLocation(50, 200);
         pnlMonstruo.add(txtNivelMonstruo);
             //Label sprite
         lblSpriteMonstruo = new JLabel();
