@@ -1,6 +1,6 @@
 # ProyectoRPG
 
-Battler RPG, por David Casalderrey Paz
+RPG Battler, por David Casalderrey Paz
 
 El objetivo hacer un programa que simule una pelea por turnos al estilo RPG, basandose mayormente en una versión simplificada de las mecánicas de D&D 5e.
 
@@ -18,5 +18,5 @@ http://dnd5e.wikidot.com/
 https://www.dandwiki.com/wiki/
 https://roll20.net/
 
-Fondo animado intro:
+Fondos animados:
 https://www.artstation.com/camilleunknown

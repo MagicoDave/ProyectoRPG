@@ -8,11 +8,10 @@ import rpg.paneles.*;
 public class Application {
   public static void main(String[] args) {
     
-      Intro intro = new Intro();
-      MenuPrincipal menuPrincipal = new MenuPrincipal();
+      RpgBattler prueba = new RpgBattler();
 
-      intro.setVisible(true);
-      intro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      prueba.setVisible(true);
+      prueba.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
       
   }
