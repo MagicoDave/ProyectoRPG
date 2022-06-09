@@ -12,7 +12,6 @@ public class Application {
 
       prueba.setVisible(true);
       prueba.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
-      
+ 
   }
 }

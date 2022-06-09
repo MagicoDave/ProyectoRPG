@@ -22,7 +22,7 @@ public class MenuPrincipal extends JPanel implements ItemListener{
     JComboBox<String> cbHeroe, cbMonstruo;
     String[] listaHeroes = {"Bárbaro", "Paladín", "Pícaro", "Mago"};
     String[] listaMonstruos = {"Goblin", "Lobo", "Oso"};
-    JTextField txtNivelHeroe, txtNivelMonstruo;
+    JTextField txtNivelHeroe, txtNivelMonstruo, txtNombreHeroe;
 
     JLabel lblBattle, lblOpciones;
 
@@ -83,6 +83,18 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         txtNivelHeroe.setSize(25, 25);
         txtNivelHeroe.setLocation(50, 200);
         pnlHeroe.add(txtNivelHeroe);
+            // Label nombre
+        lblNombre = new JLabel("ELEGIR NOMBRE");
+        lblNombre.setHorizontalAlignment(JLabel.CENTER);
+        lblNombre.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblNombre.setSize(250, 50);
+        lblNombre.setLocation(0, 250);
+        pnlHeroe.add(lblNombre);
+            // Textfield nombre
+        txtNombreHeroe = new JTextField(10);
+        txtNombreHeroe.setSize(txtNombreHeroe.getPreferredSize().width, 25);
+        txtNombreHeroe.setLocation(50, 300);
+        pnlHeroe.add(txtNombreHeroe);
             //Label Icono
         lblSpriteHeroe = new JLabel();
         lblSpriteHeroe.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconBarbaro.jpg")));
@@ -127,7 +139,7 @@ public class MenuPrincipal extends JPanel implements ItemListener{
         pnlMonstruo.add(txtNivelMonstruo);
             //Label sprite
         lblSpriteMonstruo = new JLabel();
-        lblSpriteMonstruo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconBarbaro.jpg")));
+        lblSpriteMonstruo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconGoblin.gif")));
         lblSpriteMonstruo.setSize(120, 120);
         lblSpriteMonstruo.setLocation(65, 400);
         pnlMonstruo.add(lblSpriteMonstruo);
@@ -177,6 +189,15 @@ public class MenuPrincipal extends JPanel implements ItemListener{
             clases.add(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconMago.jpg")));
 
             lblSpriteHeroe.setIcon(clases.get(cbHeroe.getSelectedIndex()));
+        }
+
+        if (e.getSource() == cbMonstruo){
+            ArrayList<ImageIcon> monstruos = new ArrayList<ImageIcon>();
+            monstruos.add(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconGoblin.gif")));
+            monstruos.add(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconWolf.gif")));
+            monstruos.add(new ImageIcon(MenuPrincipal.class.getResource("/rpg/recursos/IconBear.gif")));
+
+            lblSpriteMonstruo.setIcon(monstruos.get(cbMonstruo.getSelectedIndex()));
         }
         
     }
