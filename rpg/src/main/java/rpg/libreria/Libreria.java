@@ -1,5 +1,8 @@
 package rpg.libreria;
 
+import rpg.core.Enemigo;
+import rpg.core.Jugador;
+
 public class Libreria {
     
     /**
@@ -78,4 +81,5 @@ public class Libreria {
 
         return statMod;
     }
+
 }

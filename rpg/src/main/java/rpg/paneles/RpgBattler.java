@@ -11,6 +11,8 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import rpg.core.*;
+
 public class RpgBattler extends JFrame {
 
     Intro intro;
@@ -119,10 +121,65 @@ public class RpgBattler extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            menuPrincipal.setEnabled(false);
-            menuPrincipal.setVisible(false);
-            batalla.setVisible(true);
-            batalla.setFocusable(true);
+
+            if (e.getSource() == menuPrincipal.lblBattle){
+
+                int nivelHeroe = 1;
+                int nivelMonstruo = 1;
+                String nombreHeroe = menuPrincipal.txtNombreHeroe.getText();
+
+                try {
+                    nivelHeroe = Integer.parseInt(menuPrincipal.txtNivelHeroe.getText());
+                } catch (NumberFormatException ex) {
+                    System.err.println("No se pudo convertir el nivel del héroe a número entero");
+                    nivelHeroe = 1;
+                }
+
+                try {
+                    nivelMonstruo = Integer.parseInt(menuPrincipal.txtNivelMonstruo.getText());
+                } catch (NumberFormatException ex) {
+                    System.err.println("No se pudo convertir el nivel del monstruo a número entero");
+                    nivelMonstruo = 1;
+                }
+
+                if (nombreHeroe.isBlank()){
+                    nombreHeroe = "Perico Palotes";
+                }
+
+                batalla.heroe = new Jugador(nombreHeroe, nivelHeroe);
+                batalla.monstruo = new Enemigo(menuPrincipal.cbMonstruo.getSelectedItem().toString(), nivelMonstruo);
+
+                if (menuPrincipal.cbHeroe.getSelectedItem() == "Bárbaro"){
+                    batalla.heroe.claseBarbaro();
+                } else if (menuPrincipal.cbHeroe.getSelectedItem() == "Paladín"){
+                    batalla.heroe.clasePaladin();
+                } else if (menuPrincipal.cbHeroe.getSelectedItem() == "Pícaro"){
+                    batalla.heroe.clasePicaro();
+                } else if (menuPrincipal.cbHeroe.getSelectedItem() == "Mago"){
+                    batalla.heroe.claseMago();
+                }
+
+                if (menuPrincipal.cbMonstruo.getSelectedItem() == "Goblin"){
+                    batalla.monstruo.goblin();
+                } else if (menuPrincipal.cbMonstruo.getSelectedItem() == "Lobo"){
+                    batalla.monstruo.lobo();
+                } else if (menuPrincipal.cbMonstruo.getSelectedItem() == "Oso"){
+                    batalla.monstruo.oso();
+                }
+
+                System.err.println("Nombre héroe: " + batalla.heroe.getNombre()
+                + "\nClase héroe: " + batalla.heroe.getClase()
+                + "\nNivel héroe: " + batalla.heroe.getNivel()
+                + "\nNombre monstruo: " + batalla.monstruo.getNombre()
+                + "\nNivel monstruo: " + batalla.monstruo.getNivel());
+
+                menuPrincipal.setEnabled(false);
+                menuPrincipal.setVisible(false);
+                batalla.setVisible(true);
+                batalla.setFocusable(true);
+
+
+            }
         }
     }
 }

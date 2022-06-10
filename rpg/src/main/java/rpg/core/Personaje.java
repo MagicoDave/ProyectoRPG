@@ -5,7 +5,7 @@ import rpg.libreria.*;
 
 public class Personaje {
     
-    private String nombre;
+    private String nombre, clase;
     private int nivel;
     private int strScore, dexScore, conScore, intScore, wisScore, charScore; //Stats base
     private int strTemp, dexTemp, conTemp, intTemp, wisTemp, charTemp; //Stats temporales
@@ -30,11 +30,15 @@ public class Personaje {
         intTemp = 0;
         wisTemp = 0;
         charTemp = 0;
+        listaEquipo = new ArrayList<Equipo>();
+        listaPoderes = new ArrayList<Poder>();
     }
 
     public Personaje(String nombre, int nivel){
         this.nombre = nombre;
         this.nivel = nivel;
+        listaEquipo = new ArrayList<Equipo>();
+        listaPoderes = new ArrayList<Poder>();
     }
 
     /**
@@ -80,32 +84,31 @@ public class Personaje {
 
     /**
      * Get armadura
-     * @param pesada Si la armadura no es pesada (false) se agrega el modificador de destreza
-     * @param barbaro Si es un bárbaro, que tiene reglas de armadura especiales (10 + mod Des + mod Con)
      * @return Recorre toda la armadura equipada en {@link #listaEquipo} y devuelve la armadura total.
      *         Si es bárbaro, está sujeta a reglas especiales. El mínimo (si no se tiene armadura, por ejemplo)
      *         es 10 + el mod de destreza.
      */
-    public int getArmadura(boolean pesada, boolean barbaro){
+    public int getArmadura(){
+
         int armaduraTotal = 0;
+
         for (int i = 0; i < listaEquipo.size(); i++){
             if (listaEquipo.get(i).getClass() == Armadura.class){
                 armaduraTotal += ((Armadura) listaEquipo.get(i)).armadura;
+                if (!((Armadura) listaEquipo.get(i)).pesada){
+                    armaduraTotal += getDexMod();
+                }
             }
-        }
 
-        if(!pesada){
-            armaduraTotal += getDexMod();
-        }
-
-        if (barbaro){
-            if (armaduraTotal < 10 + getDexMod() + getConMod()){
-                armaduraTotal = 10 + getDexMod() + getConMod();
+            if (getClase() == "Bárbaro"){
+                if (armaduraTotal < 10 + getDexMod() + getConMod()){
+                    armaduraTotal = 10 + getDexMod() + getConMod();
+                }
             }
-        }
 
-        if (armaduraTotal < 10 + getDexMod()){
-            armaduraTotal = 10 + getDexMod();
+            if (armaduraTotal < 10 + getDexMod()){
+                armaduraTotal = 10 + getDexMod();
+            } 
         }
 
         return armaduraTotal;
@@ -123,6 +126,10 @@ public class Personaje {
     //Set y get nombre
     public String getNombre(){return nombre;}
     public void setNombre(String nombre){this.nombre = nombre;}
+
+    //Set y get clase
+    public String getClase(){return clase;}
+    public void setClase(String clase){this.clase = clase;}
 
     //Set y get nivel
     public int getNivel(){return nivel;}

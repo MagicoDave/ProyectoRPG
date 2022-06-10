@@ -64,7 +64,7 @@ public class Enemigo extends Personaje{
 
         //Inventario
         Arma garrasOso = new Arma("Garras de oso", "CORTANTE", Libreria.roll1d8(), false);
-        Armadura pielDeOso = new Armadura("Piel de oso", 11);
+        Armadura pielDeOso = new Armadura("Piel de oso", 11, true);
         listaEquipo.add(garrasOso);
         listaEquipo.add(pielDeOso);
     }

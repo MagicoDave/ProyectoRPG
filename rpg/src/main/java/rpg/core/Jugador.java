@@ -4,8 +4,6 @@ import rpg.libreria.Libreria;
 
 public class Jugador extends Personaje{
 
-    String nombreClase;
-
     public Jugador(String nombre, int nivel) {
         super(nombre, nivel);
     }
@@ -13,7 +11,7 @@ public class Jugador extends Personaje{
     public void claseBarbaro(){
 
         //Inicializar stats
-        nombreClase = "Bárbaro";
+        setClase("Bárbaro");
         setStrScore(20);
         setDexScore(16);
         setConScore(18);
@@ -33,7 +31,7 @@ public class Jugador extends Personaje{
     public void clasePaladin(){
 
         //Inicializar stats
-        nombreClase = "Paladín";
+        setClase("Paladín");
         setStrScore(16);
         setDexScore(14);
         setConScore(20);
@@ -46,8 +44,8 @@ public class Jugador extends Personaje{
 
         //Inventario
         Arma maza = new Arma("Maza", "APLASTANTE", Libreria.roll1d6(), false);
-        Armadura escudo = new Armadura("Escudo", 2);
-        Armadura cotaMalla = new Armadura("Cota de Malla", 16);
+        Armadura escudo = new Armadura("Escudo", 2, true);
+        Armadura cotaMalla = new Armadura("Cota de Malla", 16, true);
         listaEquipo.add(maza);
         listaEquipo.add(escudo);
         listaEquipo.add(cotaMalla);
@@ -57,7 +55,7 @@ public class Jugador extends Personaje{
     public void clasePicaro(){
 
         //Inicializar stats
-        nombreClase = "Pícaro";
+        setClase("Pícaro");
         setStrScore(12);
         setDexScore(20);
         setConScore(14);
@@ -70,7 +68,7 @@ public class Jugador extends Personaje{
 
         //Inventario
         Arma estoque = new Arma("Estoque", "PERFORANTE", Libreria.roll1d8(), true);
-        Armadura armaduraCuero = new Armadura("Armadura de cuero", 11);
+        Armadura armaduraCuero = new Armadura("Armadura de cuero", 11, false);
         listaEquipo.add(estoque);
         listaEquipo.add(armaduraCuero);
 
@@ -79,7 +77,7 @@ public class Jugador extends Personaje{
     public void claseMago(){
 
         //Inicializar stats
-        nombreClase = "Mago";
+        setClase("Mago");
         setStrScore(14);
         setDexScore(12);
         setConScore(16);
